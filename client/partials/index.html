@@ -1,0 +1,9 @@
+<h1>Q&A</h1>
+<form name='login'>
+  <label>Name: <input type='text' name='name' ng-model='user.name' ng-minlength='2' required></label>
+  <button ng-disabled='login.$invalid' ng-click='addUser(user)'>Enter</button>
+</form>
+<div ng-messages='login.name.$error'>
+  <div ng-message='required'>You did not enter a field</div>
+  <div ng-message='minlength'>Name is too short</div>
+</div>

@@ -1,0 +1,15 @@
+<a href='#!/dashboard'>Home</a> | <a href='#!/question/{{question._id}}/new_answer'>Answer this Question</a> | <a href='/logout'>Logout</a>
+<h1>{{question.question}}</h1>
+<h4>{{question.description}}</h4>
+<h3>Answers</h3>
+<table class='table'>
+  <tr ng-repeat="answer in question.answers | orderBy: '-likes'">
+    <td>
+      <h4>{{answer._responder.name}}</h4>
+      <h5>{{answer.answer}}</h5>
+      <p>{{answer.details}}</p>
+      <h3>Likes: {{answer.likes}}</h3>
+      <button ng-click='increment(answer._id, question._id)'>Like!</button>
+    </td>
+  </tr>
+</table>

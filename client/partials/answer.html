@@ -1,0 +1,13 @@
+<a href='#!/dashboard'>Home</a> | <a href='#!/question/{{question._id}}'>Go Back to Question</a> | <a href='/logout'>Logout</a>
+<h1>Question name</h1>
+<h4>Description</h4>
+<form name='theAnswer'>
+  <label>Your Answer: <input type='text' name='a' ng-model='newAnswer.answer' ng-minlength='5' required></label>
+  <label>Supporting details for your answer (optional): <input type='text' ng-model='newAnswer.details'></label>
+  <button ng-disabled='theAnswer.$invalid' ng-click='addAnswer(newAnswer)'>Submit</button>
+  <a href='#!/question/{{question._id}}'><button>Cancel</button></a>
+</form>
+<div ng-messages='theAnswer.a.$error'>
+  <div ng-message='required'>Answer field is blank</div>
+  <div ng-message='minlength'>Answer is too short</div>
+</div>
